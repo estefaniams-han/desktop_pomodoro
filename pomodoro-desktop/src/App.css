@@ -1,0 +1,110 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Pixelify Sans",
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f9c6dd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.window {
+  width: 320px;
+  border-radius: 18px;
+  background: #e3f1ff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border: 2px solid #c3d4f5;
+}
+
+.window-header {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  background: #b3d7ff;
+}
+
+.window-close {
+  border: none;
+  background: transparent;
+  cursor: default;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.window-body {
+  background: #fbd1e8;
+  padding: 14px 18px 20px;
+}
+
+.mode-switch {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.mode-btn {
+  border-radius: 10px;
+  border: none;
+  padding: 4px 16px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  background: #d4c9ff;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.mode-btn.active-work {
+  background: #eea8d9;
+  opacity: 1;
+}
+
+.mode-btn.active-break {
+  background: #a9b8ff;
+  opacity: 1;
+}
+
+.timer {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 8px;
+  color: #fbe2ff;
+  text-shadow: 0 2px 0 #705885;
+}
+
+.cloud-scene {
+  margin: 0 auto 16px;
+  width: 100%;
+  height: 140px;
+  border-radius: 14px;
+  background: linear-gradient(#584c99, #7a68c9);
+  position: relative;
+  overflow: hidden;
+}
+
+/* aquí podrías dibujar nubecitas con ::before / ::after
+   y reemplazar .cat con sprites pixel art */
+
+.play-btn {
+  display: block;
+  margin: 0 auto;
+  width: 60px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  background: #e5f3ff;
+  color: #7a68c9;
+}

@@ -1,0 +1,1 @@
+// Aquí se pueden exponer APIs seguras al renderer
