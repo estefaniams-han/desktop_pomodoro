@@ -1,59 +1,58 @@
-# Work Buddy - Pomodoro Desktop App
+# Work Buddy - Pomodoro Desktop App 🐾💻
 
-An adorable and functional Pomodoro desktop application built with Electron, React, and Vite. Work Buddy helps you maintain your productivity with the Pomodoro technique while being accompanied by an animated cat that changes states according to your activity.
+An adorable and functional Pomodoro desktop app built with Electron, React, and Vite. Work Buddy helps you stay productive using the Pomodoro technique, all while being accompanied by an animated fox and bunny that changes states based on your activity. It's like having a little buddy with you to keep you focused and motivated!
+
+<img width="952" height="1060" alt="image" src="https://github.com/user-attachments/assets/7db6fd22-e12f-4336-8c2a-49e6604dd56c" />
+
 
 ## Key Features
 
-### Pomodoro Timer
-- **Work Mode**: 25 minutes of focused concentration
-- **Break Mode**: 5 minutes of well-deserved rest
-- Timer with MM:SS format
-- Play/Pause buttons to control the timer
-- Restart button when the timer reaches zero
+### Pomodoro Timer ⏰
+- **Work Mode**: 25 minutes of laser-focused concentration 💪
+- **Break Mode**: 5 minutes of sweet, well-deserved rest 😌
+- Timer with MM:SS format to keep things neat and clear
+- Play/Pause buttons to control the timer (you got this, no stress!)
+- Restart button to reset the timer when you finish 💡
 
-### Interactive Interface
-- **Custom frameless window**: Clean design with custom window controls (minimize and close)
-- **Transparent window**: Modern and elegant visual experience
-- **Draggable window**: Place the app wherever you want on your screen
-- **Dynamic GIFs**: An animated cat that changes based on state:
-  - `idle.gif`: When the timer is paused
-  - `working.gif`: During active work mode
-  - `break.gif`: During active break mode
+### Interactive Interface ✨
+- **Custom frameless window**: Sleek, clean design with your own custom window controls (minimize and close)
+- **Transparent window**: Modern, minimal, and oh-so-aesthetic 👀
+- **Draggable window**: Place the app wherever feels best on your screen (freedom!)
+- **Dynamic GIFs**: An animated fox & bunny that changes depending on the mode:
+  - `idle.gif`: When the timer is paused (chill time 🐱)
+  - `working.gif`: During active work mode (let’s hustle!)
+  - `break.gif`: When it's time to take a break (you earned it 💤)
 
-### Motivation and Notifications
+### Motivation and Notifications 💬
 - **Random motivational quotes**:
-  - 8 unique quotes for work mode (e.g., "Focus! You're doing great!", "Productivity is your superpower")
-  - 8 unique quotes for break mode (e.g., "Time to recharge your batteries", "Rest up, you deserve it!")
-  - Quotes change randomly each time you start the timer
-- **Sound notification**: Bell tone loops when the timer finishes
-- Sound automatically stops when:
-  - Switching modes (Work/Break)
-  - Pressing Play/Pause/Restart
-  - Closing the application
+  - 8 unique quotes for work mode (e.g., "Focus! You're doing great!", "Productivity is your superpower 💖")
+  - 8 unique quotes for break mode (e.g., "Time to recharge your batteries ⚡", "Rest up, you deserve it!")
+  - Quotes change randomly each time you start the timer (because variety is the spice of life!)
+- **Sound notification**: A bell tone rings when the timer finishes (get ready to jump into the next task!)
+  - Automatically stops when:
+    - Switching modes (Work/Break)
+    - Pressing Play/Pause/Restart
+    - Closing the application
 
 ## Technologies Used
 
 ### Frontend
-- **React 19.2.0**: Library for building the user interface
-- **React DOM 19.2.0**: React component rendering
+- **React 19.2.0**: For building your purrfect user interface 😻
+- **React DOM 19.2.0**: For rendering those sleek components!
 
 ### Desktop Framework
-- **Electron 39.2.5**: Framework for creating cross-platform desktop applications
-  - `BrowserWindow`: Window management
-  - `ipcMain` and `ipcRenderer`: Inter-process communication
-  - `contextBridge`: Security through Context Isolation
+- **Electron 39.2.5**: Bringing web technologies to desktop, like magic ✨
+  - `BrowserWindow`: For window management
+  - `ipcMain` & `ipcRenderer`: For smooth communication
+  - `contextBridge`: To keep things secure and isolated!
 
 ### Build Tools
-- **Vite 7.2.4**: Modern and fast build tool
-  - Hot Module Replacement (HMR)
-  - Build optimization
-  - Official React plugin (@vitejs/plugin-react 5.1.1)
-- **Electron Builder 26.0.12**: Packaging and distribution
-  - macOS support (DMG, ZIP)
-  - Windows support (NSIS, Portable)
+- **Vite 7.2.4**: A speedy build tool for all your needs
+  - Hot Module Replacement (HMR) is here for the fast development magic 🔥
+  - Official React plugin to make sure everything flows smoothly
 
 ### Linting
-- **ESLint 9.39.1**: Static code analysis
+- **ESLint 9.39.1**: Because clean code is happy code 💖
   - eslint-plugin-react-hooks
   - eslint-plugin-react-refresh
   - @eslint/js
@@ -64,7 +63,7 @@ An adorable and functional Pomodoro desktop application built with Electron, Rea
 
 ## Prerequisites
 
-Before installing and running the project, make sure you have:
+Before you can start your journey with Work Buddy, make sure you have the following:
 
 - **Node.js**: Version 16 or higher (18+ recommended)
 - **npm**: Comes with Node.js (version 7 or higher)
@@ -370,16 +369,6 @@ Possible future improvements:
 - [ ] Dark/light mode
 - [ ] Keyboard shortcuts
 
-## Contributing
-
-Contributions are welcome. Please:
-
-1. Fork the project
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## License
 
 This project is for personal use.
@@ -397,4 +386,4 @@ This project is for personal use.
 
 ---
 
-Made with love and lots of coffee ☕
+Made with love, coffee, and a dash of code ✨☕💖
