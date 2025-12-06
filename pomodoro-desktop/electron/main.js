@@ -1,6 +1,8 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
+const isDev = !app.isPackaged;
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 490,
@@ -16,11 +18,14 @@ function createWindow() {
     },
   });
 
-  // 👉 PARA DESARROLLO: Cargar el server de Vite
-  win.loadURL("http://localhost:5173");
-
-  // Abre DevTools para ver errores de consola si algo falla
-  win.webContents.openDevTools();
+  if (isDev) {
+    // Modo desarrollo: Cargar desde Vite
+    win.loadURL("http://localhost:5173");
+    win.webContents.openDevTools();
+  } else {
+    // Modo producción: Cargar archivos compilados
+    win.loadFile(path.join(__dirname, "../dist/index.html"));
+  }
 }
 
 app.whenReady().then(() => {
@@ -35,6 +40,12 @@ app.whenReady().then(() => {
 ipcMain.on("close-window", () => {
   const win = BrowserWindow.getFocusedWindow();
   if (win) win.close();
+});
+
+// Manejar el evento de minimizar ventana
+ipcMain.on("minimize-window", () => {
+  const win = BrowserWindow.getFocusedWindow();
+  if (win) win.minimize();
 });
 
 app.on("window-all-closed", () => {

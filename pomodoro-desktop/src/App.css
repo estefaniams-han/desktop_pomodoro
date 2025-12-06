@@ -36,30 +36,40 @@ body {
   font-weight: 600;
 }
 
-.window-close-outer {
+.window-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.window-minimize-btn,
+.window-close-btn {
   border: 2px solid #b8cfe0;
   background: transparent;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 8px;
   cursor: pointer;
   color: #b8cfe0;
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   -webkit-app-region: no-drag;
   transition: all 0.2s;
   outline: none;
+  padding: 0;
 }
 
-.window-close-outer:hover {
+.window-minimize-btn:hover,
+.window-close-btn:hover {
   background: #c4d8e8;
   border-color: #a8bfd0;
   color: #8ba8c0;
 }
 
-.window-close-outer:focus {
+.window-minimize-btn:focus,
+.window-close-btn:focus {
   outline: none;
 }
 

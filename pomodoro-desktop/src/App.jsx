@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './App.css';
 import idleGif from './assets/idle.gif';
 import workingGif from './assets/working.gif';
 import breakGif from './assets/break.gif';
+import ringtone from './assets/ringtone.mp3';
 
 const WORK_TIME = 25 * 60; // 25 minutos
 const BREAK_TIME = 5 * 60; // 5 minutos
@@ -46,9 +47,28 @@ function App() {
   const [seconds, setSeconds] = useState(WORK_TIME);
   const [isRunning, setIsRunning] = useState(false);
   const [quote, setQuote] = useState(() => getRandomQuote("work"));
+  const audioRef = useRef(new Audio(ringtone));
+
+  // Configurar el audio para que se repita en loop
+  useEffect(() => {
+    audioRef.current.loop = true;
+  }, []);
+
+  // Reproducir sonido en loop
+  const playBellSound = () => {
+    audioRef.current.currentTime = 0;
+    audioRef.current.play().catch(err => console.log('Error playing sound:', err));
+  };
+
+  // Detener sonido
+  const stopBellSound = () => {
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
+  };
 
   // Cambiar entre WORK y BREAK
   const handleModeChange = (newMode) => {
+    stopBellSound(); // Detener sonido al cambiar de modo
     setMode(newMode);
     setIsRunning(false);
     setSeconds(newMode === "work" ? WORK_TIME : BREAK_TIME);
@@ -70,7 +90,8 @@ function App() {
     const id = setInterval(() => {
       setSeconds((prev) => {
         if (prev <= 1) {
-          // aquí prodría reproducir un sonido o notificación
+          // Reproducir sonido de campana
+          playBellSound();
           setIsRunning(false);
           return 0;
         }
@@ -81,7 +102,15 @@ function App() {
     return () => clearInterval(id);
   }, [isRunning]);
 
-  const togglePlay = () => setIsRunning((prev) => !prev);
+  const togglePlay = () => {
+    stopBellSound(); // Detener sonido al hacer clic en cualquier botón
+    if (seconds === 0) {
+      // Si está en 00:00, reiniciar el timer
+      setSeconds(mode === "work" ? WORK_TIME : BREAK_TIME);
+    } else {
+      setIsRunning((prev) => !prev);
+    }
+  };
 
   // Determinar qué GIF mostrar
   const getCurrentGif = () => {
@@ -92,16 +121,26 @@ function App() {
   };
 
   const handleClose = () => {
+    stopBellSound(); // Detener sonido al cerrar
     if (window.electron && window.electron.closeWindow) {
       window.electron.closeWindow();
+    }
+  };
+
+  const handleMinimize = () => {
+    if (window.electron && window.electron.minimizeWindow) {
+      window.electron.minimizeWindow();
     }
   };
 
   return (
     <div className="window">
       <div className="window-title">
-        <span>WORK FASTER♥</span>
-        <button className="window-close-outer" onClick={handleClose}>✕</button>
+        <span>WORK BUDDY♥</span>
+        <div className="window-controls">
+          <button className="window-minimize-btn" onClick={handleMinimize}>−</button>
+          <button className="window-close-btn" onClick={handleClose}>✕</button>
+        </div>
       </div>
       <div className="window-content">
         <div className="window-body">
@@ -123,7 +162,7 @@ function App() {
         <div className="timer">{formatTime(seconds)}</div>
 
         <div className="motivational-quote">
-          {isRunning && quote && quote}
+          {isRunning && quote && `"${quote}"`}
         </div>
 
         <div className="cloud-scene">
@@ -132,7 +171,7 @@ function App() {
         </div>
 
         <button className="play-btn" onClick={togglePlay}>
-          {isRunning ? "Pause" : "Play"}
+          {seconds === 0 ? "↻ Restart" : isRunning ? "Pause" : "Play"}
         </button>
         </div>
       </div>
