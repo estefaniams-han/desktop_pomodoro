@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import idleGif from './assets/idle.gif';
+import workingGif from './assets/working.gif';
+import breakGif from './assets/break.gif';
 
 const WORK_TIME = 25 * 60; // 25 minutos
 const BREAK_TIME = 5 * 60; // 5 minutos
@@ -42,14 +45,28 @@ function App() {
 
   const togglePlay = () => setIsRunning((prev) => !prev);
 
+  // Determinar qué GIF mostrar
+  const getCurrentGif = () => {
+    if (!isRunning) return idleGif; // No está corriendo = idle
+    if (mode === 'work') return workingGif; // Trabajando
+    if (mode === 'break') return breakGif; // Descansando
+    return idleGif;
+  };
+
+  const handleClose = () => {
+    if (window.electron && window.electron.closeWindow) {
+      window.electron.closeWindow();
+    }
+  };
+
   return (
     <div className="window">
-      <div className="window-header">
-        <span>WORK FASTER ♥️</span>
-        <button className="window-close">x</button>
+      <div className="window-title">
+        <span>WORK FASTER♥</span>
+        <button className="window-close-outer" onClick={handleClose}>✕</button>
       </div>
-
-      <div className="window-body">
+      <div className="window-content">
+        <div className="window-body">
         <div className="mode-switch">
           <button
             className={`mode-btn ${mode === "work" ? "active-work" : ""}`}
@@ -68,14 +85,14 @@ function App() {
         <div className="timer">{formatTime(seconds)}</div>
 
         <div className="cloud-scene">
-          {/* Nubes animadas con CSS */}
-          <div className="cat cat-left"/>
-          <div className="cat cat-right"/>
+          {/* GIF animado según el estado */}
+          <img src={getCurrentGif()} alt="Pomodoro cat" className="cat-gif" />
         </div>
 
         <button className="play-btn" onClick={togglePlay}>
           {isRunning ? "Pause" : "Play"}
         </button>
+        </div>
       </div>
     </div>
   );

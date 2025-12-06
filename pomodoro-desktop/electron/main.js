@@ -1,15 +1,18 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 420,
-    height: 480,
+    width: 480,
+    height: 540,
     resizable: false,
-    titleBarStyle: "hiddenInset",
-    backgroundColor: "#f9c6dd",
+    frame: false,
+    transparent: true,
+    backgroundColor: "#00000000",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: false,
+      contextIsolation: true,
     },
   });
 
@@ -26,6 +29,12 @@ app.whenReady().then(() => {
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+});
+
+// Manejar el evento de cerrar ventana
+ipcMain.on("close-window", () => {
+  const win = BrowserWindow.getFocusedWindow();
+  if (win) win.close();
 });
 
 app.on("window-all-closed", () => {
