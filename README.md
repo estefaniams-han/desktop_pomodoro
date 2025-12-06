@@ -78,7 +78,7 @@ Before installing and running the project, make sure you have:
 ### 1. Clone the repository
 ```bash
 git clone <your-repository-url>
-cd pomodoro-desktop
+cd desktop_pomodoro
 ```
 
 ### 2. Install dependencies
@@ -167,7 +167,7 @@ npm run preview
 ## Project Structure
 
 ```
-pomodoro-desktop/
+desktop_pomodoro/
 ├── electron/
 │   ├── main.js           # Electron main process
 │   └── preload.js        # Preload script with Context Bridge
