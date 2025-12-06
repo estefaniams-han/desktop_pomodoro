@@ -7,23 +7,61 @@ import breakGif from './assets/break.gif';
 const WORK_TIME = 25 * 60; // 25 minutos
 const BREAK_TIME = 5 * 60; // 5 minutos
 
+const WORK_QUOTES = [
+  "Focus! You're doing great!",
+  "One step at a time, you got this!",
+  "Productivity is your superpower",
+  "Every minute counts, keep going!",
+  "Your effort is worth it",
+  "Focus mode activated!",
+  "Making things happen",
+  "Future you will thank you",
+];
+
+const BREAK_QUOTES = [
+  "Time to recharge your batteries",
+  "Rest up, you deserve it!",
+  "Take a deep breath and relax",
+  "A well-deserved break",
+  "Stretch and enjoy the moment",
+  "Pause for success",
+  "Your brain needs this break",
+  "Relax, you'll come back stronger",
+];
+
 function formatTime(seconds) {
   const m = String(Math.floor(seconds / 60)).padStart(2, "0");
   const s = String(seconds % 60).padStart(2, "0");
   return `${m}:${s}`;
 }
 
+// Obtener una frase aleatoria según el modo
+const getRandomQuote = (quoteMode) => {
+  const quotes = quoteMode === "work" ? WORK_QUOTES : BREAK_QUOTES;
+  return quotes[Math.floor(Math.random() * quotes.length)];
+};
+
 function App() {
   const [mode, setMode] = useState("work");
   const [seconds, setSeconds] = useState(WORK_TIME);
   const [isRunning, setIsRunning] = useState(false);
+  const [quote, setQuote] = useState(() => getRandomQuote("work"));
 
   // Cambiar entre WORK y BREAK
   const handleModeChange = (newMode) => {
     setMode(newMode);
     setIsRunning(false);
     setSeconds(newMode === "work" ? WORK_TIME : BREAK_TIME);
+    setQuote(getRandomQuote(newMode));
   };
+
+  // Cambiar frase cuando inicia el timer
+  useEffect(() => {
+    if (isRunning) {
+      setQuote(getRandomQuote(mode));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isRunning]);
 
   // Timer
   useEffect(() => {
@@ -83,6 +121,10 @@ function App() {
         </div>
 
         <div className="timer">{formatTime(seconds)}</div>
+
+        <div className="motivational-quote">
+          {isRunning && quote && quote}
+        </div>
 
         <div className="cloud-scene">
           {/* GIF animado según el estado */}
