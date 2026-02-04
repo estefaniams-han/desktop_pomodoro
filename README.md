@@ -7,26 +7,26 @@ An adorable and functional Pomodoro desktop app built with Electron, React, and 
 
 ## Key Features
 
-### Pomodoro Timer ⏰
-- **Work Mode**: 25 minutes of laser-focused concentration 💪
-- **Break Mode**: 5 minutes of sweet, well-deserved rest 😌
+### Pomodoro Timer
+- **Work Mode**: 25 minutes of laser-focused concentration 
+- **Break Mode**: 5 minutes of sweet, well-deserved rest 
 - Timer with MM:SS format to keep things neat and clear
 - Play/Pause buttons to control the timer (you got this, no stress!)
-- Restart button to reset the timer when you finish 💡
+- Restart button to reset the timer when you finish 
 
-### Interactive Interface ✨
+### Interactive Interface
 - **Custom frameless window**: Sleek, clean design with your own custom window controls (minimize and close)
-- **Transparent window**: Modern, minimal, and oh-so-aesthetic 👀
+- **Transparent window**: Modern, minimal, and oh-so-aesthetic
 - **Draggable window**: Place the app wherever feels best on your screen (freedom!)
 - **Dynamic GIFs**: An animated fox & bunny that changes depending on the mode:
-  - `idle.gif`: When the timer is paused (chill time 🐱)
+  - `idle.gif`: When the timer is paused (chill time)
   - `working.gif`: During active work mode (let’s hustle!)
-  - `break.gif`: When it's time to take a break (you earned it 💤)
+  - `break.gif`: When it's time to take a break (you earned it)
 
-### Motivation and Notifications 💬
+### Motivation and Notifications 
 - **Random motivational quotes**:
-  - 8 unique quotes for work mode (e.g., "Focus! You're doing great!", "Productivity is your superpower 💖")
-  - 8 unique quotes for break mode (e.g., "Time to recharge your batteries ⚡", "Rest up, you deserve it!")
+  - 8 unique quotes for work mode (e.g., "Focus! You're doing great!", "Productivity is your superpower")
+  - 8 unique quotes for break mode (e.g., "Time to recharge your batteries", "Rest up, you deserve it!")
   - Quotes change randomly each time you start the timer (because variety is the spice of life!)
 - **Sound notification**: A bell tone rings when the timer finishes (get ready to jump into the next task!)
   - Automatically stops when:
@@ -37,22 +37,22 @@ An adorable and functional Pomodoro desktop app built with Electron, React, and 
 ## Technologies Used
 
 ### Frontend
-- **React 19.2.0**: For building your purrfect user interface 😻
-- **React DOM 19.2.0**: For rendering those sleek components!
+- **React 19.2.0**
+- **React DOM 19.2.0**
 
 ### Desktop Framework
-- **Electron 39.2.5**: Bringing web technologies to desktop, like magic ✨
+- **Electron 39.2.5**:
   - `BrowserWindow`: For window management
   - `ipcMain` & `ipcRenderer`: For smooth communication
   - `contextBridge`: To keep things secure and isolated!
 
 ### Build Tools
-- **Vite 7.2.4**: A speedy build tool for all your needs
-  - Hot Module Replacement (HMR) is here for the fast development magic 🔥
+- **Vite 7.2.4**:
+  - Hot Module Replacement (HMR)
   - Official React plugin to make sure everything flows smoothly
 
 ### Linting
-- **ESLint 9.39.1**: Because clean code is happy code 💖
+- **ESLint 9.39.1**:
   - eslint-plugin-react-hooks
   - eslint-plugin-react-refresh
   - @eslint/js
@@ -383,7 +383,3 @@ This project is for personal use.
 - React Team for the excellent library
 - Electron Team for making desktop apps possible with web tech
 - Vite for the blazing fast build tool
-
----
-
-Made with love, coffee, and a dash of code ✨☕💖
